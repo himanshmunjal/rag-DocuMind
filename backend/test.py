@@ -1,8 +1,8 @@
 import requests
 
-EDGAR_USER_AGENT = (
-    "DocuMind/1.0 (Research tool; your-email@example.com)"
-)
+from config import settings
+
+EDGAR_USER_AGENT = settings.EDGAR_USER_AGENT
 
 HEADERS = {
     "User-Agent": EDGAR_USER_AGENT,

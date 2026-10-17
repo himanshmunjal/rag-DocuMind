@@ -92,5 +92,5 @@ This grades the numeric, computed, qualitative and refusal cases in `backend/eva
 
 ## Notes
 
-- The SEC requires a descriptive User-Agent for EDGAR requests. Set it with `EDGAR_USER_AGENT` in `config.py`.
+- The SEC requires a descriptive User-Agent for EDGAR requests. Set `EDGAR_USER_AGENT` in `backend/.env` to include your contact email.
 - Free-tier LLM keys are rate-limited. Per-minute limits are waited out automatically, but a per-day quota will return a 503.

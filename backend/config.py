@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     GROQ_MODEL: str = "openai/gpt-oss-120b"
     GEMINI_API_KEY: str = ""
 
+    # SEC requires a contact email here; set the real one in backend/.env
     EDGAR_USER_AGENT: str = "DocuMind/1.0 (Research tool; your-email@example.com)"
 
     BASE_DIR: Path = Path(__file__).parent.parent
