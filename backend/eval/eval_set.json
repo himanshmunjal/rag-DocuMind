@@ -1,0 +1,214 @@
+{
+  "_comment": "Ground-truth eval set for the SEC filings RAG pipeline. 'expected_value' entries for numeric/computed questions should be verified against structured_store after ingestion (XBRL-reported figures can be restated between filings, so re-check before trusting these blindly). Qualitative questions have no single correct string -- grade those with must_include_concepts + the faithfulness check in run_eval.py.",
+  "cases": [
+    {
+      "id": "num-001",
+      "company": "Apple Inc.",
+      "ticker": "AAPL",
+      "cik": "0000320193",
+      "type": "numeric",
+      "question": "What was Apple's total revenue for fiscal year 2024?",
+      "expected_value": 391035000000,
+      "unit": "USD",
+      "tolerance_pct": 0.5,
+      "source_form": "10-K"
+    },
+    {
+      "id": "num-002",
+      "company": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "numeric",
+      "question": "What was Microsoft's net income in fiscal year 2024?",
+      "expected_value": 88136000000,
+      "unit": "USD",
+      "tolerance_pct": 0.5,
+      "source_form": "10-K",
+      "_note": "Verified against structured_store (SEC XBRL) on 2026-10-18 — 'most recent' cases move when a newer 10-K is ingested; re-check then.",
+      "cik": "0000789019"
+    },
+    {
+      "id": "num-003",
+      "company": "Tesla, Inc.",
+      "ticker": "TSLA",
+      "type": "numeric",
+      "question": "How many shares of Tesla common stock were outstanding as of the most recent 10-K?",
+      "expected_value": 3752431984,
+      "unit": "shares",
+      "tolerance_pct": 0.5,
+      "source_form": "10-K",
+      "cik": "0001318605",
+      "_note": "Verified against structured_store (SEC XBRL) on 2026-10-18 — 'most recent' cases move when a newer 10-K is ingested; re-check then. Cover-page count from Tesla's FY2025 10-K (as of 2026-01-23)."
+    },
+    {
+      "id": "computed-001",
+      "company": "Apple Inc.",
+      "ticker": "AAPL",
+      "type": "computed",
+      "question": "How much did Apple's revenue grow year-over-year in fiscal year 2024 compared to fiscal year 2023, in percentage terms?",
+      "expected_value": 2.02,
+      "unit": "percent",
+      "tolerance_pct": 2.0,
+      "source_form": "10-K",
+      "_note": "(391,035M - 383,285M) / 383,285M from structured_store.",
+      "cik": "0000320193"
+    },
+    {
+      "id": "computed-002",
+      "company": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "type": "computed",
+      "question": "What was Amazon's gross margin in its most recent fiscal year?",
+      "expected_value": 50.29,
+      "unit": "percent",
+      "tolerance_pct": 2.0,
+      "source_form": "10-K",
+      "cik": "0001018724",
+      "_note": "Verified against structured_store (SEC XBRL) on 2026-10-18 — 'most recent' cases move when a newer 10-K is ingested; re-check then. FY2025: (net sales 716,924M - cost of sales 356,414M) / 716,924M — Amazon doesn't tag GrossProfit."
+    },
+    {
+      "id": "computed-003",
+      "company": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "computed",
+      "question": "Compare Microsoft's and Apple's R&D spending as a percentage of revenue in their most recent fiscal years.",
+      "expected_value": null,
+      "unit": "percent",
+      "tolerance_pct": 1.0,
+      "source_form": "10-K",
+      "_note": "Verified against structured_store (SEC XBRL) on 2026-10-18 — 'most recent' cases move when a newer 10-K is ingested; re-check then. MSFT FY2026 R&D/revenue = 10.72%, AAPL FY2025 = 8.30%. Multi-company computed question.",
+      "cik": "0000789019",
+      "expected_values": [
+        10.72,
+        8.3
+      ]
+    },
+    {
+      "id": "qual-001",
+      "company": "Apple Inc.",
+      "ticker": "AAPL",
+      "type": "qualitative",
+      "question": "What does Apple identify as its main supply chain risks?",
+      "expected_item": "Item 1A",
+      "must_include_concepts": [
+        "concentration of manufacturing",
+        "single or limited sources",
+        "China",
+        "component shortages"
+      ],
+      "must_not_include": [
+        "specific unreported dollar figures"
+      ],
+      "cik": "0000320193"
+    },
+    {
+      "id": "qual-002",
+      "company": "Tesla, Inc.",
+      "ticker": "TSLA",
+      "type": "qualitative",
+      "question": "Why did Tesla's management say gross margin changed in the most recent fiscal year?",
+      "expected_item": "Item 7",
+      "must_include_concepts": [
+        "regulatory credits",
+        "deliveries",
+        "average selling price",
+        "services and other margins"
+      ],
+      "cik": "0001318605",
+      "_note": "From Tesla's FY2025 10-K, Item 7 'Cost of Revenues and Gross Margin': automotive gross margin fell 18.4% -> 17.8% primarily due to lower regulatory credits revenue plus changes in automotive sales revenue (≈8% fewer deliveries, lower average selling price) and cost of sales; segment margin decline partially offset by services and other margins."
+    },
+    {
+      "id": "qual-003",
+      "company": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "type": "qualitative",
+      "question": "What competitive risks does Microsoft describe related to cloud computing?",
+      "expected_item": "Item 1A",
+      "must_include_concepts": [
+        "Amazon",
+        "Google",
+        "cloud competition",
+        "pricing pressure"
+      ],
+      "cik": "0000789019"
+    },
+    {
+      "id": "qual-004",
+      "company": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "type": "qualitative",
+      "question": "How does Amazon describe its approach to capital expenditures for AWS infrastructure?",
+      "expected_item": "Item 7",
+      "must_include_concepts": [
+        "data centers",
+        "capacity",
+        "AWS",
+        "capital investment"
+      ],
+      "cik": "0001018724"
+    },
+    {
+      "id": "qual-005",
+      "company": "Apple Inc.",
+      "ticker": "AAPL",
+      "type": "qualitative",
+      "question": "What legal proceedings or litigation does Apple disclose as material?",
+      "expected_item": "Item 3",
+      "must_include_concepts": [
+        "Epic Games",
+        "Department of Justice",
+        "Digital Markets Act",
+        "ordinary course of business"
+      ],
+      "cik": "0000320193",
+      "_note": "From Apple's FY2025 10-K, Item 3: EU Digital Markets Act investigations (€500M fine), DOJ civil antitrust lawsuit, Epic Games App Store litigation, and other ordinary-course proceedings."
+    },
+    {
+      "id": "refusal-001",
+      "company": "Apple Inc.",
+      "ticker": "AAPL",
+      "type": "qualitative",
+      "question": "What is Apple's stock price target according to Goldman Sachs analysts?",
+      "expected_behavior": "refuse_or_low_confidence",
+      "_note": "This information is not in a 10-K -- the guard should trigger low-confidence refusal, not hallucinate an analyst opinion.",
+      "cik": "0000320193"
+    },
+    {
+      "id": "refusal-002",
+      "company": "Tesla, Inc.",
+      "ticker": "TSLA",
+      "type": "numeric",
+      "question": "What was Tesla's revenue in fiscal year 2030?",
+      "expected_behavior": "refuse_or_low_confidence",
+      "_note": "Future/nonexistent period -- structured_store should return no match, and the app must not fabricate a number.",
+      "cik": "0001318605"
+    },
+    {
+      "id": "refusal-003",
+      "company": "N/A",
+      "ticker": "N/A",
+      "type": "qualitative",
+      "question": "What did the CEO say about the company's outlook in yesterday's earnings call?",
+      "expected_behavior": "refuse_or_low_confidence",
+      "_note": "Earnings calls are not 10-K/10-Q content -- tests whether the app correctly scopes itself to what's actually ingested.",
+      "cik": null
+    },
+    {
+      "id": "cross-doc-001",
+      "company": "Apple Inc. / Microsoft Corporation",
+      "ticker": "AAPL/MSFT",
+      "type": "computed",
+      "question": "Which company had higher operating margin in their most recent fiscal year, Apple or Microsoft?",
+      "expected_value": null,
+      "unit": "percent",
+      "tolerance_pct": 1.0,
+      "source_form": "10-K",
+      "_note": "Verified against structured_store (SEC XBRL) on 2026-10-18 — 'most recent' cases move when a newer 10-K is ingested; re-check then. MSFT FY2026 operating margin 46.78% vs AAPL FY2025 31.97%.",
+      "cik": null,
+      "expected_values": [
+        46.78,
+        31.97
+      ],
+      "must_match_regex": "microsoft[^.]*higher than[^.]*apple"
+    }
+  ]
+}

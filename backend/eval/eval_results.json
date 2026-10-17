@@ -1,0 +1,167 @@
+[
+  {
+    "id": "num-001",
+    "type": "numeric",
+    "question": "What was Apple's total revenue for fiscal year 2024?",
+    "passed": true,
+    "reason": "PASS \u2014 extracted 391035000000.0, expected 391035000000 (\u00b10.5%)",
+    "answer": "Apple Inc. \u2014 Revenue for FY 2024: 391,035,000,000 USD.",
+    "confidence": "HIGH",
+    "citation_count": 0,
+    "latency_s": 0.05
+  },
+  {
+    "id": "num-002",
+    "type": "numeric",
+    "question": "What was Microsoft's net income in fiscal year 2024?",
+    "passed": true,
+    "reason": "PASS \u2014 extracted 88136000000.0, expected 88136000000 (\u00b10.5%)",
+    "answer": "Microsoft Corporation \u2014 Net Income for FY 2024: 88,136,000,000 USD.",
+    "confidence": "HIGH",
+    "citation_count": 0,
+    "latency_s": 0.01
+  },
+  {
+    "id": "num-003",
+    "type": "numeric",
+    "question": "How many shares of Tesla common stock were outstanding as of the most recent 10-K?",
+    "passed": true,
+    "reason": "PASS \u2014 extracted 3752431984.0, expected 3752431984 (\u00b10.5%)",
+    "answer": "Tesla, Inc. \u2014 3,752,431,984 shares of common stock outstanding as of 2026-01-23 (reported in the FY 2025 10-K).",
+    "confidence": "HIGH",
+    "citation_count": 0,
+    "latency_s": 0.01
+  },
+  {
+    "id": "computed-001",
+    "type": "computed",
+    "question": "How much did Apple's revenue grow year-over-year in fiscal year 2024 compared to fiscal year 2023, in percentage terms?",
+    "passed": true,
+    "reason": "PASS \u2014 extracted 2.02, expected 2.02 (\u00b12.0%)",
+    "answer": "Revenue increased by 2.02% from FY 2023 (383,285,000,000 USD) to FY 2024 (391,035,000,000 USD).",
+    "confidence": "HIGH",
+    "citation_count": 0,
+    "latency_s": 0.01
+  },
+  {
+    "id": "computed-002",
+    "type": "computed",
+    "question": "What was Amazon's gross margin in its most recent fiscal year?",
+    "passed": true,
+    "reason": "PASS \u2014 extracted 50.29, expected 50.29 (\u00b12.0%)",
+    "answer": "Amazon Com Inc \u2014 Gross margin for FY 2025: 50.29%.",
+    "confidence": "HIGH",
+    "citation_count": 0,
+    "latency_s": 0.01
+  },
+  {
+    "id": "computed-003",
+    "type": "computed",
+    "question": "Compare Microsoft's and Apple's R&D spending as a percentage of revenue in their most recent fiscal years.",
+    "passed": true,
+    "reason": "PASS \u2014 all of [10.72, 8.3] found in answer (\u00b11.0%)",
+    "answer": "R&d as a percentage of revenue \u2014 Microsoft Corporation: 10.72% (FY 2026); Apple Inc.: 8.30% (FY 2025). Microsoft Corporation is higher than Apple Inc. by 2.41 percentage points.",
+    "confidence": "HIGH",
+    "citation_count": 0,
+    "latency_s": 0.01
+  },
+  {
+    "id": "qual-001",
+    "type": "qualitative",
+    "question": "What does Apple identify as its main supply chain risks?",
+    "passed": true,
+    "reason": "PASS \u2014 matched 2/4 concepts, 5 citation(s)",
+    "answer": "Apple identifies several key risks to its supply chain:\n\n- **Reliance on single or limited sources** for many critical components, which creates supply\u2011shortage and price\u2011increase risks if those sources are disrupted, fail, consolidate, or choose to focus on common rather than custom parts. \n\n- **Industrial accidents at suppliers or contract manufacturers**, which could cause injuries, loss of life, operational disruption, and reputational harm. \n\n- **Major public\u2011health events such as pandemics**, which can lead to travel restrictions, freight limitations, and broader supply\u2011chain and distribution interruptions, delaying production ramps and new\u2011product development. \n\n- **Industry\u2011wide component shortages and commodity\u2011price volatility**, exemplified by past semiconductor shortages that limited Apple\u2019s ability to obtain sufficient quantities on reasonable terms. \n\n- **Risks associated with introducing new technologies and custom components**, including initial capacity constraints, yield maturation issues, and the difficulty of extending or renewing supply agreements on favorable terms. \n\nThese factors together constitute Apple\u2019s primary supply\u2011chain risks.",
+    "confidence": "HIGH",
+    "citation_count": 5,
+    "latency_s": 14.45
+  },
+  {
+    "id": "qual-002",
+    "type": "qualitative",
+    "question": "Why did Tesla's management say gross margin changed in the most recent fiscal year?",
+    "passed": true,
+    "reason": "PASS \u2014 matched 3/4 concepts, 5 citation(s)",
+    "answer": "Tesla\u2019s management said the gross\u2011margin decline in the most recent fiscal year was driven primarily by a drop in automotive regulatory\u2011credits revenue and by the changes in automotive sales revenue and its associated costs. The reduction in regulatory\u2011credits revenue, together with lower average selling prices and a shift in sales mix that lowered the average cost per vehicle, pulled the automotive gross margin down, while the lower cost of automotive sales was only partially offset by those factors. Additionally, the company noted that the decrease in regulatory\u2011credits revenue was a key factor in the overall margin decline for the total automotive & services and other segment.",
+    "confidence": "LOW",
+    "citation_count": 5,
+    "latency_s": 3.59
+  },
+  {
+    "id": "qual-003",
+    "type": "qualitative",
+    "question": "What competitive risks does Microsoft describe related to cloud computing?",
+    "passed": true,
+    "reason": "PASS \u2014 matched 2/4 concepts, 5 citation(s)",
+    "answer": "Microsoft identifies several competitive risks to its cloud\u2011computing business. It notes that \u201ccompetitive dynamics affecting pricing\u201d and the possibility that \u201ccustomers may reduce, delay, or shift AI workloads to competing platforms, on\u2011premises or local deployments, or other alternatives\u201d could adversely affect its results. In addition, the company states that the markets for cloud\u2011based and AI products and services are \u201chighly dynamic\u2026 intense competition\u201d and that its success depends on its ability to \u201cbring to market compelling cloud\u2011based and AI products\u2026 drive customer adoption\u2026 effectively monetize\u2026 attract third parties\u2026 maintain reliability and security\u2026 and make its suite\u2026 platform\u2011agnostic\u201d in the face of that competition.",
+    "confidence": "HIGH",
+    "citation_count": 5,
+    "latency_s": 2.56
+  },
+  {
+    "id": "qual-004",
+    "type": "qualitative",
+    "question": "How does Amazon describe its approach to capital expenditures for AWS infrastructure?",
+    "passed": true,
+    "reason": "PASS \u2014 matched 3/4 concepts, 5 citation(s)",
+    "answer": "Amazon characterizes its capital\u2011expenditure program as focused on investing in technology infrastructure that primarily supports the growth of its AWS business. Cash capital expenditures \u201cprimarily reflect investments in technology infrastructure (the majority of which is to support\u202fAWS\u202fbusiness growth) and in additional capacity to support our fulfillment network\u201d and are expected to increase in 2026. The company says it \u201cinvests efficiently in numerous areas of technology and infrastructure\u2026as we continue to add infrastructure and employees\u2026These costs are allocated to segments based on usage, and the increase in technology and infrastructure costs in\u202f2025\u202fwas primarily due to higher spending on infrastructure\u201d.",
+    "confidence": "HIGH",
+    "citation_count": 5,
+    "latency_s": 15.17
+  },
+  {
+    "id": "qual-005",
+    "type": "qualitative",
+    "question": "What legal proceedings or litigation does Apple disclose as material?",
+    "passed": true,
+    "reason": "PASS \u2014 matched 3/4 concepts, 4 citation(s)",
+    "answer": "Apple discloses several material legal proceedings and litigation:\n\n* **Epic Games antitrust lawsuit** \u2013 Epic Games, Inc. filed a suit in the U.S. District Court for the Northern District of California alleging violations of federal and state antitrust laws and California\u2019s unfair\u2011competition law based on Apple\u2019s App Store operations. The court issued a 2021 injunction and, after Apple\u2019s motion to narrow or vacate it was denied, the court again enjoined Apple from imposing commissions or restrictions on purchases made outside an app and referred the matter for possible criminal contempt. Apple has appealed that decision to the Ninth Circuit Court of Appeals.\n\n* **Department of Justice antitrust lawsuit** \u2013 On March\u202f21\u202f2024, the U.S. Department of Justice and multiple state and district attorneys general filed a civil antitrust suit in the U.S. District Court for the District of New\u202fJersey alleging Apple\u2019s monopolization or attempted monopolization of the \u201cperformance smartphones\u201d and \u201csmartphones\u201d markets. The DOJ is seeking equitable relief, and Apple says it has substantial defenses and will vigorously defend the case.\n\n* **European Union Digital Markets Act (DMA) investigations** \u2013 \n * On March\u202f25\u202f2024 the European Commission opened a formal non\u2011compliance investigation under Article\u202f5(4) of the DMA concerning how developers may communicate and promote offers to end users and conclude contracts. \n * On June\u202f24\u202f2024 the Commission opened an additional investigation under Article\u202f6(4) of the DMA regarding Apple\u2019s new contractual requirements for third\u2011party developers and app marketplaces. \n * On April\u202f23\u202f2025 the Commission fined Apple \u20ac500\u202fmillion in the Article\u202f5(4) investigation and issued a cease\u2011and\u2011desist order to remove technical and commercial restrictions that prevent developers from steering users to alternative distribution channels. Apple has appealed that decision, and the Commission also issued preliminary findings in the Article\u202f6(4) investigation that could lead to further fines of up to 10\u202f% of Apple\u2019s annual worldwide net sales.\n\n* **Other ongoing legal proceedings** \u2013 Apple notes that it is subject to additional civil litigation in state and federal courts alleging antitrust violations and seeking monetary and non\u2011monetary relief. While some matters were settled in the fourth quarter of 2025, Apple states that those settlements did not individually or in the aggregate have a material impact on its financial condition or operating results.",
+    "confidence": "LOW",
+    "citation_count": 4,
+    "latency_s": 11.39
+  },
+  {
+    "id": "refusal-001",
+    "type": "qualitative",
+    "question": "What is Apple's stock price target according to Goldman Sachs analysts?",
+    "passed": true,
+    "reason": "PASS \u2014 correctly refused / returned low confidence",
+    "answer": "I don't have enough information in the uploaded documents to answer this confidently.",
+    "confidence": "INSUFFICIENT",
+    "citation_count": 0,
+    "latency_s": 25.08
+  },
+  {
+    "id": "refusal-002",
+    "type": "numeric",
+    "question": "What was Tesla's revenue in fiscal year 2030?",
+    "passed": true,
+    "reason": "PASS \u2014 correctly refused / returned low confidence",
+    "answer": "I don't have enough information in the uploaded documents to answer this confidently.",
+    "confidence": "INSUFFICIENT",
+    "citation_count": 0,
+    "latency_s": 0.03
+  },
+  {
+    "id": "refusal-003",
+    "type": "qualitative",
+    "question": "What did the CEO say about the company's outlook in yesterday's earnings call?",
+    "passed": true,
+    "reason": "PASS \u2014 correctly refused / returned low confidence",
+    "answer": "I don't have enough information in the uploaded documents to answer this confidently.",
+    "confidence": "INSUFFICIENT",
+    "citation_count": 0,
+    "latency_s": 4.43
+  },
+  {
+    "id": "cross-doc-001",
+    "type": "computed",
+    "question": "Which company had higher operating margin in their most recent fiscal year, Apple or Microsoft?",
+    "passed": true,
+    "reason": "PASS \u2014 all of [46.78, 31.97] found in answer (\u00b11.0%)",
+    "answer": "Operating margin \u2014 Apple Inc.: 31.97% (FY 2025); Microsoft Corporation: 46.78% (FY 2026). Microsoft Corporation is higher than Apple Inc. by 14.81 percentage points.",
+    "confidence": "HIGH",
+    "citation_count": 0,
+    "latency_s": 0.02
+  }
+]
